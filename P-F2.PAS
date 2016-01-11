@@ -178,7 +178,7 @@ procedure sim(var B: pole);
                     B[i,j]:='n';
                     inc(cis);
                     a_n:=true;
-                   end;
+                   end
                      else a_n:=false;
           writeln('-Radila nemoc! Pocet obeti: ',cis);
         end;
