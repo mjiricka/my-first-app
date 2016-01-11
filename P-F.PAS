@@ -12,40 +12,40 @@ procedure frames;
         clrscr;
 
         {rohy}
-        gotoxy(2,1); write(#201);
-        gotoxy(2,25); write(#200);
-        gotoxy(79,1); write(#187);
-        gotoxy(79,25); write(#188);
+        gotoxy(2,1); write('╔');
+        gotoxy(2,25); write('╚');
+        gotoxy(79,1); write('╗');
+        gotoxy(79,25); write('╝');
 
         {spojeni rohu}
         for i:=3 to 78 do begin
-            gotoxy(i,1); write(#205);
-            gotoxy(i,3); write(#205);
-            gotoxy(i,25); write(#205);
+            gotoxy(i,1); write('═');
+            gotoxy(i,3); write('═');
+            gotoxy(i,25); write('═');
         end;
 
         for i:=2 to 24 do begin
-            gotoxy(2,i); write(#186);
-            gotoxy(79,i); write(#186);
+            gotoxy(2,i); write('║');
+            gotoxy(79,i); write('║');
         end;
 
         {predel v prostredni casti}
         for i:=4 to 24 do begin
-            gotoxy(39,i); write(#186);
+            gotoxy(39,i); write('║');
         end;
 
         {dalsi deleni v levem okne}
         for i:=3 to 38 do begin
-            gotoxy(i,5); write(#205);
+            gotoxy(i,5); write('═');
         end;
 
         {doladeni prechodu}
-        gotoxy(2,3); write(#204);
-        gotoxy(79,3); write(#185);
-        gotoxy(39,3); write(#203);
-        gotoxy(39,25); write(#202);
-        gotoxy(2,5); write(#204);
-        gotoxy(39,5); write(#185);
+        gotoxy(2,3); write('╠');
+        gotoxy(79,3); write('╣');
+        gotoxy(39,3); write('╦');
+        gotoxy(39,25); write('╩');
+        gotoxy(2,5); write('╠');
+        gotoxy(39,5); write('╣');
  end;
 
 
@@ -196,11 +196,11 @@ procedure menu(var B: pole); {pole vstupuje proto, aby se mohlo predat rdgrit}
         head2('..::MENU::..');
 
         {vypsani voleb}
-        writeln('1. Start hry');
-        writeln('2. Napoveda');
-        writeln('3. Intro');
-        writeln('4. Smazani mrizky');
-        writeln('5. Konec');
+        write('1. Start hry', #10);
+        write('2. Napoveda', #10);
+        write('3. Intro', #10);
+        write('4. Smazani mrizky', #10);
+        write('5. Konec', #10);
 
         {vyber volby}
         write('Zadejte svoji volbu: ');
@@ -215,7 +215,7 @@ procedure menu(var B: pole); {pole vstupuje proto, aby se mohlo predat rdgrit}
           '5': the_end;
            else begin
              textcolor(red);
-             writeln;
+             write(#10);
              write('Neplatna volba.');
              readkey;
              menu(B);
@@ -239,13 +239,13 @@ procedure intro(a: boolean; var B: pole);
 	textcolor(yellow);
         clrscr;
         gotoxy(10,5);
-        writeln('Vitejte ve hre...');
+        write('Vitejte ve hre...', #10);
 
         gotoxy(50,22);
-        writeln('by Martin Jiricka');
+        write('by Martin Jiricka', #10);
 
         gotoxy(69,25);
-        writeln('verze: 1.0a');
+        write('verze: 1.0a', #10);
 
         {napis Zivot}
         assign(F, 'zivot.dat');

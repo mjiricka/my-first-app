@@ -12,8 +12,8 @@ procedure wrgrad(B: pole);
         window(50,5,53,25);
 
         for i:=10 downto 1 do begin
-            writeln(i, '0');
-            writeln;
+            write(i, '0', #10);
+            write(#10);
         end;
 
         {tabulka}
@@ -96,7 +96,7 @@ procedure head2(napis: retezec); forward;
               val(x2,x,code);
               if (not(code<>1) or ((x<1) or (x>10))) then begin
                  textcolor(red);
-                 writeln('Hodnota je mimo mez! Opakujte.');
+                 write('Hodnota je mimo mez! Opakujte.', #10);
                  textcolor(colortext);
                  goto 1;
               end;
@@ -106,7 +106,7 @@ procedure head2(napis: retezec); forward;
              val(x2,y,code);
              if (not(code<>1) or ((y<1) or (y>7))) then begin
                 textcolor(red);
-                writeln('Hodnota je mimo mez! Opakujte.');
+                write('Hodnota je mimo mez! Opakujte.', #10);
                 textcolor(colortext);
                 goto 2;
              end;
@@ -115,7 +115,7 @@ procedure head2(napis: retezec); forward;
              if ((pohlavi='m') or (pohlavi='z')) then A[x,y]:=pohlavi
                else begin
                  textcolor(red);
-                 writeln('Kamen nemuze byt neco mezi muzem a  zenou, opakujte!');
+                 write('Kamen nemuze byt neco mezi muzem a  zenou, opakujte!', #10);
                  textcolor(black);
                  goto 3;
                end;
@@ -162,7 +162,7 @@ procedure sim(var B: pole);
         a_n:=false;
 
         clrscr;
-        writeln('---stalo se---');
+        write('---stalo se---', #10);
 
         {redukce postavicek na polovinu pri premnozeni}
         {spocitani poctu postav na hraci plose}
@@ -180,14 +180,14 @@ procedure sim(var B: pole);
                     a_n:=true;
                    end
                      else a_n:=false;
-          writeln('-Radila nemoc! Pocet obeti: ',cis);
+          write('-Radila nemoc! Pocet obeti: ',cis, #10);
         end;
-        if cis=0 then writeln('-Na mape jiz nikdo neni!');
+        if cis=0 then write('-Na mape jiz nikdo neni!', #10);
 
         {prirozena smrt}
         for i:=1 to 7 do if not(B[1,i]='n') then begin
-            if B[1,i]='m' then writeln('-Dedecek zemrel.')
-                else writeln('-Babicka zemrela.');
+            if B[1,i]='m' then write('-Dedecek zemrel.', #10)
+                else write('-Babicka zemrela.', #10);
             B[1,i]:='n';
         end;
 
@@ -201,10 +201,10 @@ procedure sim(var B: pole);
 
            randomize;
            case random(4) of
-             0: writeln('na infarkt.');
-             1: writeln('pri autonehode.');
-             2: writeln('na predavkovani  drogou.');
-             3: writeln('behem         prestrelky v supermarketu.');
+             0: write('na infarkt.', #10);
+             1: write('pri autonehode.', #10);
+             2: write('na predavkovani  drogou.', #10);
+             3: write('behem         prestrelky v supermarketu.', #10);
            end;
 
            B[i,j]:='n'; {vymazani z pole}
@@ -217,8 +217,8 @@ procedure sim(var B: pole);
                    cis:=randomf(j);
                    if not(B[i-1,cis]='n') then begin {oznameni o vrazde}
                       write('-',10-i+2,'0ti let');
-                      if B[i,j]='m' then writeln('y muz zabil jinou postavu!')
-                         else writeln('a zena zavrazdila jinou    postavu!');
+                      if B[i,j]='m' then write('y muz zabil jinou postavu!', #10)
+                         else write('a zena zavrazdila jinou    postavu!', #10);
                    end;
                    B[i-1,cis]:=B[i,j]; {prohozeni}
                    B[i,j]:='n';
@@ -229,22 +229,22 @@ procedure sim(var B: pole);
         for i:=1 to 10 do begin
 
             if B[i,1]='m' then begin
-               writeln('-',10-i+1,'0ti lety muz si vzal zenu z jine  rodiny.');
+               write('-',10-i+1,'0ti lety muz si vzal zenu z jine  rodiny.', #10);
                B[i,2]:='z';
             end;
 
             if B[i,7]='m' then begin
-               writeln('-',10-i+1,'0ti lety muz si vzal zenu z jine  rodiny.');
+               write('-',10-i+1,'0ti lety muz si vzal zenu z jine  rodiny.', #10);
                B[i,6]:='z';
             end;
 
             if B[i,1]='z' then begin
-               writeln('-',10-i+1,'0ti leta zena si vzala muze z     jine rodiny.');
+               write('-',10-i+1,'0ti leta zena si vzala muze z     jine rodiny.', #10);
                B[i,2]:='m';
             end;
 
             if B[i,7]='z' then begin
-               writeln('-',10-i+1,'0ti leta zena si vzala muze z     jine rodiny.');
+               write('-',10-i+1,'0ti leta zena si vzala muze z     jine rodiny.', #10);
                B[i,6]:='m';
             end;
 
@@ -256,12 +256,12 @@ procedure sim(var B: pole);
 
         if not(B[i,j]='n') then begin
            if B[i,j]='m' then begin
-              writeln('-',10-i+1,'0ti lety muz ma nemanzelske       dite!');
+              write('-',10-i+1,'0ti lety muz ma nemanzelske       dite!', #10);
               B[10,j]:='m';
            end;
 
         if B[i,j]='z' then begin
-           writeln('-',10-i+1,'0ti leta zena ma nemanzelske      dite!');
+           write('-',10-i+1,'0ti leta zena ma nemanzelske      dite!', #10);
            B[10,j]:='z';
            end;
         end;
@@ -292,15 +292,15 @@ procedure sim(var B: pole);
                                a_n:=true;
                                break;
                             end;
-                     if (a_n=true) then writeln('-Narodilo se dite!')
-			else writeln('-Nezdarilo se zplodit dite!');
+                     if (a_n=true) then write('-Narodilo se dite!', #10)
+			else write('-Nezdarilo se zplodit dite!', #10);
 
                      if j<>7 then j:=j+1; {preskoceni dalsi bunky}
                  end;
                end;
              end;
  
-        writeln('-Postavy zestarly o 10 let.');
+        write('-Postavy zestarly o 10 let.', #10);
         write('--------------');
  end;
 
@@ -321,9 +321,9 @@ procedure game(var B: pole);
         head2('Simulace generaci');
 
         {zobrazeni zpravy o posunu}
-        writeln('Nyni zacne hra.');
-        writeln('Pro posun mezi generacemi stisknete');
-        writeln('libovolnou klavesu.');
+        write('Nyni zacne hra.', #10);
+        write('Pro posun mezi generacemi stisknete', #10);
+        write('libovolnou klavesu.', #10);
         write('Pro konec pismeno q! ');
         readkey;
 
