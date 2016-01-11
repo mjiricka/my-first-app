@@ -1,0 +1,19 @@
+   Napoveda ke hre:
+ ==================
+   Hra Zivot simuluje vyvoj jednoho
+ rodu.
+   Na pocatku kazde hry se zadaji
+ jednotlivy prislusnici rodu,
+ kteri jsou znazornovani graficky
+ na mrizce. Muzi jsou modri, zeny
+ cervene. Podle toho, jak vysoko
+ jsou v mrizce, je jim let.
+ (Stari je urceno cislicemi
+ 10 az 100 vlevo od mrizky.)
+   Pomoci stisku libovolneho
+ tlacitka (vyjma pismene 'q', ktere
+ ukoncuje program) se posouvate
+ vzdy o deset let vpred, coz se
+ promita i do stari jednotlivych
+ postav (=> vzdy se posunou o jeden
+ radek vyse.)
