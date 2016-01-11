@@ -21,40 +21,40 @@ procedure wrgrad(B: pole);
         clrscr;
 
         {prvni radek}
-	write(#218);
+	write('┌');
 	for i:=1 to 6 do begin
-            write(#196); write(#194);
+            write('─'); write('┬');
 	end;
-	writeln(#196, #191);
+	write('─', '┐', #10);
 
 	{stred}
 	for j:=1 to 9 do begin
 
             {sudy radek}
     	    for i:=1 to 7 do begin
-        	write(#179); write(' ');
+        	write('│'); write(' ');
    	    end;
-    	    writeln(#179);
+    	    write('│', #10);
 
             {lichy radek}
-	    write(#195);
+	    write('├');
  	    for i:=1 to 6 do begin
-                write(#196); write(#197);
+                write('─'); write('┼');
   	    end;
-    	    writeln(#196, #180);
+    	    write('─', '┤', #10);
 	end;
 
 	{posledni 2 radky}
 	for i:=1 to 7 do begin
-            write(#179); write(' ');
+            write('│'); write(' ');
    	end;
-	writeln(#179);
+	write('│', #10);
 
-	write(#192);
+	write('└');
 	for i:=1 to 6 do begin
-            write(#196); write(#193);
+            write('─'); write('┴');
 	end;
-	write(#196, #217);
+	write('─', '┘');
 
         {Doplneni znacek}
 
@@ -64,7 +64,7 @@ procedure wrgrad(B: pole);
                   gotoxy(j*2,i*2);
                   if(B[i,j]='m') then textcolor(blue)
                     else textcolor(red);
-                  write(#219);
+                  write('█');
                   textcolor(colortext);
                 end;
             end;
