@@ -35,7 +35,7 @@ some random actions like weddings, accidents, etc. are performed.
 Application was written for Borland Turbo Pascal.
 
 
-## How to run it now
+## How to run it under modern Linux
 
 This is probably the most interesting part of this document. How to run such
 program under Linux now? I ported it under FreePascal. Compilation can be done
