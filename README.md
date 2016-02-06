@@ -38,14 +38,14 @@ Application was written for Borland Turbo Pascal.
 ## How to run it under modern Linux
 
 This is probably the most interesting part of this document. How to run such
-program under Linux now? I ported it under FreePascal. Compilation can be done
-like this:
+program under Linux now? I did some small changes to make it work under FreePascal.
+Compilation can be done like this:
 
     fpc -MTP ZIVOT.PAS -ozivot
 
 (There is also Makefile for that.)
 
-Unfortunately, I used extended part of ASCII to draw console graphics, that
+Unfortunately, I used non-standard part of ASCII to draw console graphics, that
 is not compatible with modern Unicode terminals.
 
 I tried to port it (see branch `fpc_port`), but then I found out that 
@@ -57,15 +57,15 @@ encoding is [CP-437](https://en.wikipedia.org/wiki/Code_page_437). There is also
 program called [luit](http://invisible-island.net/luit/) that should done
 the conversion, but it did not work for me.
 
-So the best option for me was to use Gnome Terminal which supports compatible
-encoding `Hebrew IBM862`. Here is a tutorial how to setup it up:
+Luckily, Gnome Terminal supports compatible encoding `Hebrew IBM862`.
+Here is a tutorial how to set it up:
 
 http://nethack.wikia.com/wiki/IBMgraphics#gnome-terminal
 
 
 ## Screenshots
 
-So, here are two screenshots of this awesome program! ;)
+So, here are two screenshots of this awesome program running in Gnome Terminal! ;)
 
 ![screen of menu](doc/screen_menu.png)
 
