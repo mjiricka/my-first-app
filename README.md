@@ -41,7 +41,7 @@ This is probably the most interesting part of this document. How to run such
 program under Linux now? I ported it under FreePascal. Compilation can be done
 like this:
 
-   fpc -MTP ZIVOT.PAS -ozivot
+    fpc -MTP ZIVOT.PAS -ozivot
 
 (There is also Makefile for that.)
 
